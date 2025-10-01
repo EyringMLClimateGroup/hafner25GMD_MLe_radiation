@@ -1,0 +1,33 @@
+# ML enhanced radiation 
+
+This repository contains the code for the ML-enhanced radiation scheme which is based on [RTE+RRTMGP](https://github.com/earth-system-radiation/rte-rrtmgp) used in the [ICON Model](https://gitlab.dkrz.de/icon/icon-model). The corresponding paper is submitted to the Journal Geoscientific Model Development. 
+
+
+If you want to use this repository, you can start by executing
+```
+conda env create -f environment_ml.yml
+conda activate hafner1_ml_rad
+```
+for training and evaluation the ML-based part.
+
+If you want to use [pyrte-rrtmgp](https://github.com/earth-system-radiation/pyRTE-RRTMGP), activate the following environment
+```
+conda env create -f environment_pyrte.yml
+conda activate hafner1_pyrte_rrtmgp
+```
+
+# Repository content
+- [evaluation](evaluation) contains some functions for prediction and evaluation
+- [models](models) contains the NN architecture including preprocessing layer
+- [nn_config](nn_config) contains the configuration of all NNs
+- [plotter](plotter) contains plotting functions
+- [preprocessing](preprocessing) contains the normalization file and data loader
+- [utils](utils) contains some helper functions
+- [train_jsc_cloudy.py](train_coarse_levante.py) contains the training script
+- [eval_jsc_cloudy.py](eval_coarse_levante.py) contains the evaluation script
+- [pyrte_on_coarse_grained_data.py](pyrte_on_coarse_grained_data.py) script to tun pyrte+rrtmgp on coarse grained data for reference
+
+# Previous Work
+The code is partialy based on previous work on an [ML-based radiaiton emulator](https://github.com/EyringMLClimateGroup/hafner24jgrml_MLradiationemulation_offline) which hase been published:
+
+> Hafner, K., Iglesias-Suarez, F., Shamekh, S., Gentine, P., Giorgetta, M. A., Pincus, R., & Eyring, V. (2025). Interpretable machine learning-based radiation emulation for ICON. *Journal of Geophysical Research: Machine Learning and Computation*, 2, e2024JH000501. [https://doi.org/10.1029/2024JH000501](https://doi.org/10.1029/2024JH000501)

@@ -1,0 +1,95 @@
+model_type: "cloudy_SW_FLUX_HR"            
+baseline: "LW_SR"
+baseline_path: "/p/project1/icon-a-ml/hafner1/cloudy_radiation/results/four_months/baseline_cloudy_SW_HR/model.pth"
+n_flux_vars: 8
+learning_rate: 1.0e-3
+folder: "four_months"         # Folder to save the model
+dev: False                  # Use development mode, loads less data
+checkpoint: False          # Load checkpoint
+weight_decay: 0
+hidden_size: 96
+batch_size: 1024
+seed: 3141
+nn: ""
+x_mode: "vertical"       # Choices: ["vertical", "horizontal"]
+y_mode: "vertical"       # Choices: ["vertical", "horizontal"]
+pretrained: False          # Load pretrained model
+start_epoch: 0             # Start training from checkpoint
+train_epochs: -1            # Train for E epochs use 0 for maximum + early stopping
+eval_on: "test"            # Choices: ["train", "validation", "test"]
+exp_name: "exp"
+base: "path/to/data/"  # Base path to data
+data: "/p/project1/icon-a-ml/hafner1/cloudy_radiation/data/"
+train_path: ""
+val_path: ""
+test_path: ""
+norm_file_path: "/p/project1/icon-a-ml/hafner1/cloudy_radiation/preprocessing/norm_file_extra.pkl"
+vgrid_path: "/p/project1/icon-a-ml/hafner1/cloudy_radiation/preprocessing/atm_amip_R2B5_vgrid_ml.nc"
+grid_path: "/p/project/icon-a-ml/hafner1/cloudy_radiation/data/icon_grid_0019_R02B05_G.nc"
+vert_int_weights_path: "/p/project1/icon-a-ml/hafner1/cloudy_radiation/preprocessing/weights_vert_integral_on_cg.npy"
+# Placeholder, will be set dynamically in Python
+save_folder: ""
+result_folder: ""
+model_path: ""
+grid: ""
+vgrid: ""
+pretrained_path: ""
+checkpoint_path: ""
+device: ""
+num_gpus: 0
+norm_file: ""
+result_file: ""
+x_shape: 0
+y_shape: 0
+extra_shape: 0
+coarse_train: ""
+coarse_val: ""
+coarse_test: ""
+train_steps: 0
+validation_steps: 0
+
+
+variables:
+  in_vars:
+    - "extra_3d_cli"      # Cloud ice content
+    - "extra_3d_clw"      # Cloud liquid water content
+    - "extra_3d_hus"      # Specific humidity
+    - "extra_3d_qs"         # snow
+    - "toa"               # Top of atmosphere
+    - "extra_2d_albedo"   # Surface albedo
+    - "o3"                # Ozone concentration
+    - "cl"                # Cloud fraction
+    - "rho"               # Air density
+    - "extra_3d_ta"       # Air temperature
+    - "albvisdir"           # Visible direct albedo
+    - "albvisdif"           # Visible diffuse albedo
+    - "albnirdir"           # Near-infrared direct albedo
+    - "albnirdif"           # Near-infrared diffuse albedo
+  out_vars:
+    - "tend_ta_rsw"       # Tendency of temperature due to shortwave radiation
+                          # actually in this case it is just cloud effects on heating rate. 
+                          # see more details in model. It is just to make it compatible with 
+                          # postprocessing layer
+    - "rsds"                # Surface downwelling shortwave radiation
+    - "rsut"                # Top of atmosphere upwelling shortwave radiation
+    - "rpds_dir"            # Direct shortwave radiation at surface
+    - "rpds_dif"            # Diffuse shortwave radiation at surface
+    - "rvds_dir"            # Direct visible radiation at surface
+    - "rvds_dif"            # Diffuse visible radiation at surface
+    - "rnds_dir"            # Direct near-infrared radiation at surface
+    - "rnds_dif"            # Diffuse near-infrared radiation at surface
+  extra_in:
+    - "tend_ta_rsw_cs"    # Tendency of temperature due to shortwave radiation
+    - "q"                 # Total water content hus + cli + clw
+    - "cvair"             # Conversion factor for W/m^2 to K/day
+    - "vweights"
+    - "rsdscs"              # Surface downwelling shortwave radiation
+    - "rsutcs"              # Top of atmosphere upwelling shortwave radiation
+  diagnostics:
+    - "extra_2d_prw"      # Precipitable water
+    - "extra_2d_iwp"      # Vertically integrated cloud ice
+    - "extra_2d_lwp"      # Vertically integrated cloud liquid
+    - "clt"               # Total cloud cover
+    - "cosmu0"
+    - "pr"
+    
