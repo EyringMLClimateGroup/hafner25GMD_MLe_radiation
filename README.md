@@ -1,6 +1,12 @@
 # Representing Subgrid-Scale Cloud Effects in a Radiation Parameterization using Machine Learning: MLe-radiation v1.0
+[![DOI](https://zenodo.org/badge/1070938076.svg)](https://doi.org/10.5281/zenodo.17280639)
+
 
 This repository contains the code for the ML-enhanced radiation scheme which is based on [RTE+RRTMGP](https://github.com/earth-system-radiation/rte-rrtmgp) used in the [ICON Model](https://gitlab.dkrz.de/icon/icon-model). The corresponding paper is submitted to the Journal Geoscientific Model Development. 
+
+The corresponding paper is available on arxiv as preprint
+>
+
 
 
 If you want to use this repository, you can start by executing
