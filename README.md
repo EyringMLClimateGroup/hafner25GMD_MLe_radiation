@@ -1,4 +1,4 @@
-# ML enhanced radiation 
+# Representing Subgrid-Scale Cloud Effects in a Radiation Parameterization using Machine Learning: MLe-radiation v1.0
 
 This repository contains the code for the ML-enhanced radiation scheme which is based on [RTE+RRTMGP](https://github.com/earth-system-radiation/rte-rrtmgp) used in the [ICON Model](https://gitlab.dkrz.de/icon/icon-model). The corresponding paper is submitted to the Journal Geoscientific Model Development. 
 
