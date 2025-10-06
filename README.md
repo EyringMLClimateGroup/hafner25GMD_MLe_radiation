@@ -26,6 +26,9 @@ conda activate hafner1_pyrte_rrtmgp
 - [train_jsc_cloudy.py](train_coarse_levante.py) contains the training script
 - [eval_jsc_cloudy.py](eval_coarse_levante.py) contains the evaluation script
 - [pyrte_on_coarse_grained_data.py](pyrte_on_coarse_grained_data.py) script to tun pyrte+rrtmgp on coarse grained data for reference
+- [config.py](config.py) contains some general routines that are used for the training and evaluation script such as reading config files, loading data, creating an instance of the NN
+- [data_distribution.ipynb](data_distribution.ipynb) used to calculate and plot the distributions of variables in the simulations (Figure 2, 3, A1, B1)
+- [combined_eval_plots.ipynb](combined_eval_plots.ipynb) used to calculate statisitcs and plot the results (Figure 4, 5, C1)
 
 # Previous Work
 The code is partialy based on previous work on an [ML-based radiaiton emulator](https://github.com/EyringMLClimateGroup/hafner24jgrml_MLradiationemulation_offline) which hase been published:
